@@ -1,17 +1,17 @@
 class Sach: 
     def __init__(self): 
-        self.tensach =  "" 
-        self.tacgia = "" 
-        self.nam = 0 
-        self.soluong = 0 
+        self.__tensach =  "" 
+        self.__tacgia = "" 
+        self.__nam = 0 
+        self.__soluong = 0 
     def nhap(self): 
-        self.tensach = input("ten sach: ")
-        self.tacgia = input("tac gia: ")
-        self.nam = int(input("nam: "))
-        self.soluong = int(input("soluong: "))
+        self._tensach = input("ten sach: ")
+        self.__tacgia = input("tac gia: ")
+        self.__nam = int(input("nam: "))
+        self.__soluong = int(input("soluong: "))
     def xuat(self): 
-        print(self.tensach, self.tacgia, self.nam, self.soluong)
+        print(self.__tensach, self.__tacgia, self.__nam, self.__soluong)
 
 sach1 = Sach() 
 sach1.nhap()
-sach1.xuat()        
+sach1.xuat()     

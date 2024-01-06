@@ -1,8 +1,10 @@
-class edition: 
+from abc import ABC, abstractmethod
+class edition(ABC): 
     ds = []
     def __init__(self, title, author):
         self.title = title
         self.author = author
+    @abstractmethod
     def CompareTo(self): 
         pass 
     def xuat(self):
