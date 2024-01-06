@@ -23,9 +23,6 @@ class vip(standard):
     def __init__(self, tenkh, cmnd, songaythue, loaiphong): 
         super().__init__(tenkh, cmnd, songaythue)
         self.loaiphong = loaiphong
-        # if self not in standard.ds:
-        #     standard.ds.append(self)
-        
     def tienthue(self):
         if self.loaiphong == "luxury": 
             if self.songaythue <= 5: 
