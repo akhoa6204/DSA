@@ -6,7 +6,7 @@ class student:
     def xuat(self): 
         print(f"Name: {self.ten}, {self.tuoi} tuoi va hoc lop {self.lop}")
         
-sv1 = student('Nguyễn Văn A', 6, "1A3")
+sv1 = student('Nguyễn Văn C', 6, "1A3")
 sv1.xuat()
 sv1.lop = "1A7"
 sv1.xuat()

@@ -30,9 +30,13 @@ class dssv:
             
     def find(self, name): 
         cur = self.head
-        while cur.name != name and self.head != None:
+        while cur is not None:
+            if cur.name == name:
+                break
             cur =cur.next
-        print(cur.name, cur.age, cur.Class)
+        if cur is not None: 
+            print(cur.name, cur.age, cur.Class)
+        else: print("Không có sv cần tìm kiếm ")
     
     def AgeMax(self): 
         if self.head is None:
@@ -60,54 +64,34 @@ class dssv:
             cur = cur.next
         print(min.name, min.age, min.Class)
     
-    def Replace(self, index1, index2):
-        cur = self.head
-        i = 0
-        A = None
-        B = None
-
-        while cur is not None and self.head is not None:
-            if i == index1:
-                A = cur
-            elif i == index2:
-                B = cur
-            cur = cur.next
-            i += 1
-
-        if A is None or B is None:
-            print("Vị trí không hợp lệ.")
+    def swap_nodes(self, index_x, index_y):
+        if index_x == index_y:
             return
 
-        cur = self.head
-        prev_A = None
-        prev_B = None
+        prevX, currX, i = None, self.head, 0
+        while currX and i != index_x:
+            prevX, currX = currX, currX.next
+            i += 1
 
-        while cur is not None and self.head is not None:
-            if cur == A:
-                break
-            prev_A = cur
-            cur = cur.next
+        prevY, currY, i = None, self.head, 0
+        while currY and i != index_y:
+            prevY, currY = currY, currY.next
+            i += 1
 
-        cur = self.head
-        while cur is not None and self.head is not None:
-            if cur == B:
-                break
-            prev_B = cur
-            cur = cur.next
+        if currX is None or currY is None:
+            return
 
-        if prev_A is not None:
-            prev_A.next = B
-            if A != B:
-                self.head = B
+        if prevX is not None:
+            prevX.next = currY
         else:
-            self.head = B
+            self.head = currY
 
-        if prev_B is not None:
-            prev_B.next = A
+        if prevY is not None:
+            prevY.next = currX
         else:
-            self.head = A
+            self.head = currX
 
-        A.next, B.next = B.next, A.next
+        currX.next, currY.next = currY.next, currX.next
 
 ds = dssv()
 ds.Add(student("Nguyễn Văn A", 10, "5D4"))
@@ -121,11 +105,11 @@ ds.PrintTail()
 print("------------------------")
 ds.Print()
 print("------------------------")
-ds.find("Nguyễn Văn A")
+ds.find("Nguyễn Văn C")
 print("------------------------")
 ds.AgeMax()
 ds.AgeMin()
 print("------------------------")
-ds.Replace(0,3) 
+ds.swap_nodes(0,3) 
 ds.Print()
 
