@@ -110,6 +110,6 @@ print("------------------------")
 ds.AgeMax()
 ds.AgeMin()
 print("------------------------")
-ds.swap_nodes(0,3) 
+ds.swap_nodes(1,2) 
 ds.Print()
 
